@@ -1,0 +1,17 @@
+[
+    {
+        "model": "loan.pkl",
+        "result": "\u274c Loan Rejected",
+        "time": "2026-05-19 09:24:28"
+    },
+    {
+        "model": "loan.pkl",
+        "result": "\ud83c\udfe6 Loan Approved",
+        "time": "2026-05-19 13:58:57"
+    },
+    {
+        "model": "student.pkl",
+        "result": "\ud83c\udf93 Predicted Score: 117.0%",
+        "time": "2026-05-19 13:59:13"
+    }
+]

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        .navbar {
+
+            background: #111827;
+
+            padding: 18px 35px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .navbar h2 {
+            margin: 0;
+        }
+
+        .container {
+            padding: 35px;
+        }
+
+        .stats {
+
+            display: flex;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+
+            background: linear-gradient(145deg, #1e293b, #111827);
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            width: 220px;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .stat-card h1 {
+
+            margin: 0;
+
+            color: #38bdf8;
+        }
+
+        .upload-box {
+
+            background: #111827;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            margin-bottom: 40px;
+        }
+
+        input[type=file] {
+
+            margin-top: 15px;
+
+            color: white;
+        }
+
+        button {
+
+            padding: 10px 18px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+
+            color: white;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+        .models-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 20px;
+        }
+
+        .model-card {
+
+            background: #111827;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+
+            transition: transform 0.3s;
+        }
+
+        .model-card:hover {
+
+            transform: translateY(-5px);
+        }
+
+        .status {
+
+            display: inline-block;
+
+            margin-top: 10px;
+
+            background: #16a34a;
+
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+        }
+
+        .activity-box {
+
+            background: #111827;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            margin-top: 40px;
+        }
+
+        .activity-item {
+
+            background: #1e293b;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin-top: 12px;
+        }
+
+        a {
+
+            color: white;
+
+            text-decoration: none;
+        }
+
+        .delete-btn {
+
+            background: #dc2626;
+
+            margin-top: 10px;
+        }
+
+        .footer {
+
+            margin-top: 50px;
+
+            text-align: center;
+
+            color: #94a3b8;
+
+            font-size: 13px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <h2>☁ Cloud ML Deployment Platform</h2>
+
+        <div>
+
+            Welcome, {{ user }}
+
+            |
+
+            <a href="/logout">Logout</a>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <h1>Cloud Infrastructure Console</h1>
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+            <div class="stat-card">
+
+                <h1>{{ models|length }}</h1>
+
+                <p>Active Models</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h1>{{ total_predictions }}</h1>
+
+                <p>Predictions Served</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h1>99.9%</h1>
+
+                <p>API Uptime</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h1>Healthy</h1>
+
+                <p>System Status</p>
+
+            </div>
+            <div class="stat-card">
+
+    <h1>AWS</h1>
+
+    <p>Cloud Provider</p>
+
+</div>
+<div class="stat-card">
+
+    <h1>24ms</h1>
+
+    <p>Avg API Latency</p>
+
+</div>
+
+
+        </div>
+
+        <!-- UPLOAD -->
+
+        <div class="upload-box">
+
+            <h2>📤 Upload ML Model</h2>
+
+            <form action="/upload-model"
+                  method="post"
+                  enctype="multipart/form-data">
+
+                <input type="file"
+                       name="model_file"
+                       accept=".pkl"
+                       required>
+
+                <br><br>
+
+                <button type="submit">
+
+                    Upload Model
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- MODELS -->
+
+        <h2>🚀 Deployed Models</h2>
+
+        <div class="models-grid">
+
+            {% for model in models %}
+
+            <div class="model-card">
+
+                <h3>{{ model.display }}</h3>
+
+                <div class="status">
+    API Active
+</div>
+
+<br><br>
+
+<small style="color:#94a3b8;">
+
+Endpoint:
+
+<br>
+
+<code>
+
+/api/{{ model.file.replace('.pkl','') }}/predict
+
+</code>
+
+</small>
+<br><br>
+
+<small style="color:#94a3b8;">
+
+Version: v1.0
+
+<br>
+
+Runtime: Python 3.11
+
+<br>
+
+Status: Healthy
+
+</small>
+
+                <br><br>
+
+                <a href="/predict/{{ model.file }}">
+
+                    <button>
+
+                        Open Model
+
+                    </button>
+
+                </a>
+
+                <br>
+
+                <a href="/delete-model/{{ model.file }}">
+
+                    <button class="delete-btn">
+
+                        Delete Model
+
+                    </button>
+
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <!-- ACTIVITY -->
+
+        <div class="activity-box">
+
+            <h2>📊 Recent Prediction Activity</h2>
+
+            {% if recent_history %}
+
+                {% for item in recent_history %}
+
+                    <div class="activity-item">
+
+                        <strong>{{ item.model }}</strong>
+
+                        <br><br>
+
+                        {{ item.result }}
+
+                        <br><br>
+
+                        <small>{{ item.time }}</small>
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>No activity yet.</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="footer">
+
+            Cloud-Based ML Deployment Platform • Demo Version
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
