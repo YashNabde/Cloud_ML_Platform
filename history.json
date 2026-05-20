@@ -13,5 +13,65 @@
         "model": "student.pkl",
         "result": "\ud83c\udf93 Predicted Score: 117.0%",
         "time": "2026-05-19 13:59:13"
+    },
+    {
+        "model": "loan.pkl",
+        "result": "\ud83c\udfe6 Loan Approved",
+        "time": "2026-05-19 15:43:42"
+    },
+    {
+        "model": "loan.pkl",
+        "result": "\ud83c\udfe6 Loan Approved",
+        "time": "2026-05-19 16:15:44"
+    },
+    {
+        "model": "house.pkl",
+        "result": "Estimated Property Value: \u20b9121.31 Lakhs",
+        "time": "2026-05-20 10:40:48"
+    },
+    {
+        "model": "salary.pkl",
+        "result": "Estimated Salary Package: \u20b958.0 Lakhs",
+        "time": "2026-05-20 10:41:26"
+    },
+    {
+        "model": "house.pkl",
+        "result": "Estimated Property Value: \u20b9159.09 Lakhs",
+        "time": "2026-05-20 10:43:59"
+    },
+    {
+        "model": "house.pkl",
+        "result": "",
+        "time": "2026-05-20 10:55:55"
+    },
+    {
+        "model": "loan.pkl",
+        "result": "",
+        "time": "2026-05-20 10:56:11"
+    },
+    {
+        "model": "loan.pkl",
+        "result": "",
+        "time": "2026-05-20 10:56:47"
+    },
+    {
+        "model": "loan.pkl",
+        "result": "Loan Application Status: Approved<br><br>Risk Assessment: Low Risk Applicant<br><br>Recommendation: Eligible for standard interest rates",
+        "time": "2026-05-20 10:58:29"
+    },
+    {
+        "model": "salary.pkl",
+        "result": "Estimated Salary Package: \u20b976.53 Lakhs<br><br>Compensation Category: Executive Level Compensation<br><br>Industry Benchmark Status: Competitive",
+        "time": "2026-05-20 10:58:54"
+    },
+    {
+        "model": "house.pkl",
+        "result": "Estimated Property Value: \u20b93.54 Crore<br><br>Market Trend: Stable Growth<br><br>Property Evaluation Status: Verified",
+        "time": "2026-05-20 10:59:20"
+    },
+    {
+        "model": "house.pkl",
+        "result": "Estimated Property Value: \u20b947.71 Lakhs<br><br>Market Trend: Stable Growth<br><br>Property Evaluation Status: Verified",
+        "time": "2026-05-20 11:08:33"
     }
 ]

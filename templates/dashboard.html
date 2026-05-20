@@ -7,18 +7,33 @@
 
     <style>
 
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+        * {
+
             margin: 0;
-            font-family: 'Segoe UI', sans-serif;
+
+            padding: 0;
+
+            box-sizing: border-box;
+        }
+
+        body {
+
+            font-family: 'Inter', sans-serif;
+
             background: #0f172a;
+
             color: white;
         }
 
         .navbar {
 
+            width: 100%;
+
             background: #111827;
 
-            padding: 18px 35px;
+            padding: 22px 50px;
 
             display: flex;
 
@@ -29,165 +44,242 @@
             border-bottom: 1px solid #1e293b;
         }
 
-        .navbar h2 {
-            margin: 0;
+        .logo {
+
+            font-size: 1.3rem;
+
+            font-weight: 600;
+        }
+
+        .nav-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .welcome {
+
+            color: #cbd5e1;
+
+            font-size: 14px;
+        }
+
+        .logout-btn {
+
+            padding: 10px 18px;
+
+            background: transparent;
+
+            border: 1px solid #374151;
+
+            border-radius: 10px;
+
+            color: white;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+
+            background: white;
+
+            color: black;
         }
 
         .container {
-            padding: 35px;
+
+            width: 90%;
+
+            margin: auto;
+
+            padding-top: 50px;
+
+            text-align: center;
+        }
+
+        h1 {
+
+            font-size: 2.5rem;
+
+            margin-bottom: 10px;
+
+            font-weight: 600;
+        }
+
+        .subtitle {
+
+            color: #94a3b8;
+
+            margin-bottom: 50px;
         }
 
         .stats {
 
-            display: flex;
+            display: grid;
 
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
 
-            flex-wrap: wrap;
+            gap: 25px;
 
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .stat-card {
 
-            background: linear-gradient(145deg, #1e293b, #111827);
+            background: #111827;
 
-            padding: 25px;
+            padding: 35px;
 
-            border-radius: 15px;
+            border-radius: 18px;
 
-            width: 220px;
-
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border: 1px solid #1e293b;
         }
 
-        .stat-card h1 {
+        .stat-card h2 {
 
-            margin: 0;
+            font-size: 2rem;
 
-            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+
+            color: #94a3b8;
         }
 
         .upload-box {
 
             background: #111827;
 
-            padding: 25px;
+            padding: 40px;
 
-            border-radius: 15px;
+            border-radius: 18px;
 
-            margin-bottom: 40px;
+            border: 1px solid #1e293b;
+
+            margin-bottom: 50px;
         }
 
         input[type=file] {
 
-            margin-top: 15px;
+            margin-top: 20px;
 
-            color: white;
+            color: #cbd5e1;
         }
 
         button {
 
-            padding: 10px 18px;
+            margin-top: 20px;
+
+            padding: 12px 24px;
 
             border: none;
 
-            border-radius: 8px;
+            border-radius: 10px;
 
-            background: linear-gradient(to right, #00c6ff, #0072ff);
+            background: white;
 
-            color: white;
+            color: black;
+
+            font-weight: 600;
 
             cursor: pointer;
 
-            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+
+            background: #d1d5db;
         }
 
         .models-grid {
 
             display: grid;
 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
 
-            gap: 20px;
+            gap: 25px;
+
+            margin-top: 30px;
         }
 
         .model-card {
 
             background: #111827;
 
-            padding: 25px;
+            padding: 35px;
 
-            border-radius: 15px;
+            border-radius: 18px;
 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-
-            transition: transform 0.3s;
+            border: 1px solid #1e293b;
         }
 
-        .model-card:hover {
+        .model-name {
 
-            transform: translateY(-5px);
+            font-size: 1.2rem;
+
+            margin-bottom: 15px;
+
+            font-weight: 500;
         }
 
         .status {
 
-            display: inline-block;
+            color: #22c55e;
 
-            margin-top: 10px;
+            margin-bottom: 20px;
 
-            background: #16a34a;
+            font-size: 14px;
+        }
 
-            padding: 5px 10px;
+        .endpoint {
 
-            border-radius: 20px;
+            color: #94a3b8;
 
-            font-size: 12px;
+            font-size: 13px;
+
+            margin-bottom: 20px;
         }
 
         .activity-box {
 
             background: #111827;
 
-            padding: 25px;
+            padding: 40px;
 
-            border-radius: 15px;
+            border-radius: 18px;
 
-            margin-top: 40px;
+            border: 1px solid #1e293b;
+
+            margin-top: 50px;
         }
 
         .activity-item {
 
-            background: #1e293b;
+            background: #0f172a;
 
-            padding: 15px;
+            padding: 20px;
 
-            border-radius: 10px;
+            border-radius: 12px;
 
-            margin-top: 12px;
-        }
+            margin-top: 20px;
 
-        a {
-
-            color: white;
-
-            text-decoration: none;
-        }
-
-        .delete-btn {
-
-            background: #dc2626;
-
-            margin-top: 10px;
+            border: 1px solid #1e293b;
         }
 
         .footer {
 
             margin-top: 50px;
 
-            text-align: center;
+            margin-bottom: 30px;
 
-            color: #94a3b8;
+            color: #64748b;
 
             font-size: 13px;
         }
@@ -198,19 +290,27 @@
 
 <body>
 
-    <!-- NAVBAR -->
-
     <div class="navbar">
 
-        <h2>☁ Cloud ML Deployment Platform</h2>
+        <div class="logo">
 
-        <div>
+            Cloud ML Platform
 
-            Welcome, {{ user }}
+        </div>
 
-            |
+        <div class="nav-right">
 
-            <a href="/logout">Logout</a>
+            <div class="welcome">
+
+                Logged in as Administrator
+
+            </div>
+
+            <a href="/logout" class="logout-btn">
+
+                Logout
+
+            </a>
 
         </div>
 
@@ -220,13 +320,19 @@
 
         <h1>Cloud Infrastructure Console</h1>
 
+        <div class="subtitle">
+
+            Machine Learning Deployment & Monitoring Platform
+
+        </div>
+
         <!-- STATS -->
 
         <div class="stats">
 
             <div class="stat-card">
 
-                <h1>{{ models|length }}</h1>
+                <h2>{{ models|length }}</h2>
 
                 <p>Active Models</p>
 
@@ -234,7 +340,7 @@
 
             <div class="stat-card">
 
-                <h1>{{ total_predictions }}</h1>
+                <h2>{{ total_predictions }}</h2>
 
                 <p>Predictions Served</p>
 
@@ -242,7 +348,7 @@
 
             <div class="stat-card">
 
-                <h1>99.9%</h1>
+                <h2>99.9%</h2>
 
                 <p>API Uptime</p>
 
@@ -250,26 +356,11 @@
 
             <div class="stat-card">
 
-                <h1>Healthy</h1>
+                <h2>24ms</h2>
 
-                <p>System Status</p>
+                <p>Average Latency</p>
 
             </div>
-            <div class="stat-card">
-
-    <h1>AWS</h1>
-
-    <p>Cloud Provider</p>
-
-</div>
-<div class="stat-card">
-
-    <h1>24ms</h1>
-
-    <p>Avg API Latency</p>
-
-</div>
-
 
         </div>
 
@@ -277,7 +368,7 @@
 
         <div class="upload-box">
 
-            <h2>📤 Upload ML Model</h2>
+            <h2>Upload Machine Learning Model</h2>
 
             <form action="/upload-model"
                   method="post"
@@ -288,7 +379,7 @@
                        accept=".pkl"
                        required>
 
-                <br><br>
+                <br>
 
                 <button type="submit">
 
@@ -302,7 +393,7 @@
 
         <!-- MODELS -->
 
-        <h2>🚀 Deployed Models</h2>
+        <h2>Deployed Models</h2>
 
         <div class="models-grid">
 
@@ -310,50 +401,30 @@
 
             <div class="model-card">
 
-                <h3>{{ model.display }}</h3>
+                <div class="model-name">
+
+                    {{ model.display }}
+
+                </div>
 
                 <div class="status">
-    API Active
-</div>
 
-<br><br>
+                    API Operational
 
-<small style="color:#94a3b8;">
+                </div>
 
-Endpoint:
+                <div class="endpoint">
 
-<br>
+                    Endpoint:
+                    /api/{{ model.file.replace('.pkl','') }}/predict
 
-<code>
-
-/api/{{ model.file.replace('.pkl','') }}/predict
-
-</code>
-
-</small>
-<br><br>
-
-<small style="color:#94a3b8;">
-
-Version: v1.0
-
-<br>
-
-Runtime: Python 3.11
-
-<br>
-
-Status: Healthy
-
-</small>
-
-                <br><br>
+                </div>
 
                 <a href="/predict/{{ model.file }}">
 
                     <button>
 
-                        Open Model
+                        Run Inference
 
                     </button>
 
@@ -363,7 +434,7 @@ Status: Healthy
 
                 <a href="/delete-model/{{ model.file }}">
 
-                    <button class="delete-btn">
+                    <button style="margin-top:15px; background:#1e293b; color:white;">
 
                         Delete Model
 
@@ -381,7 +452,7 @@ Status: Healthy
 
         <div class="activity-box">
 
-            <h2>📊 Recent Prediction Activity</h2>
+            <h2>Recent Prediction Activity</h2>
 
             {% if recent_history %}
 
@@ -393,7 +464,7 @@ Status: Healthy
 
                         <br><br>
 
-                        {{ item.result }}
+                        {{ item.result | safe }}
 
                         <br><br>
 
@@ -405,7 +476,7 @@ Status: Healthy
 
             {% else %}
 
-                <p>No activity yet.</p>
+                <p>No activity available.</p>
 
             {% endif %}
 
@@ -413,7 +484,7 @@ Status: Healthy
 
         <div class="footer">
 
-            Cloud-Based ML Deployment Platform • Demo Version
+            Cloud-Based Machine Learning Deployment Platform
 
         </div>
 
